@@ -7,7 +7,7 @@ body
   font-family: 'Felipa';
   font-style: normal;
   font-weight: 400;
-  src: local('Felipa'), local('Felipa-Regular'), url(http://themes.googleusercontent.com/static/fonts/felipa/v1/CGA4sfSyBqMA9-nMl4k29-vvDin1pK8aKteLpeZ5c0A.ttf) format('truetype');
+  src: local('Felipa'), local('Felipa-Regular'), url(https://themes.googleusercontent.com/static/fonts/felipa/v1/CGA4sfSyBqMA9-nMl4k29-vvDin1pK8aKteLpeZ5c0A.ttf) format('truetype');
 }
 
 h1 {font-family: 'Felipa';

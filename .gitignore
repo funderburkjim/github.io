@@ -1,2 +1,4 @@
 # emacs backup files
 *~
+# unneeded mac file
+.DS_Store
