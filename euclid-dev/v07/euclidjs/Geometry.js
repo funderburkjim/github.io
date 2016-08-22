@@ -193,7 +193,12 @@ euclid.Geometry.prototype.parseColor = function(str) {
  var h,s,b,parts;
  parts = str.split(',');  // str = "20,40,60"
  //console.log('Geometry.parseColor: chk4. parts=',parts);
- [h,s,b] = parts.map(function(x) {return parseInt(x);});
+ // Aug 21, 2016. Microsoft Edge doesn't like this 
+ //[h,s,b] = parts.map(function(x) {return parseInt(x);});
+ parts = parts.map(function(x) {return parseInt(x);});
+ h = parts[0];
+ s = parts[1];
+ b = parts[2];
  // no check for bad numbers, e.g., str="20,40"
  var c =this.hsbcolor(h,s,b);
  /*
