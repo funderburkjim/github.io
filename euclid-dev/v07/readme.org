@@ -1,0 +1,128 @@
+* ERRORS in html files
+** one earlier where <param/> was on two lines (?)
+** propI11.html
+ <i>FG</>   ==> <i>FG</i>
+
+** DONE propI19.html requires PropI19b.gif
+   (law of sines). Copied from ../clarkhtml/bookI/propI19b.gif to bookI/
+  and also copied to ~/Documents/euclidv1/clark/elements/bookI/
+** DONE propI47.html requires propI47a.gif 
+  (Pythagorean theorem)
+ (relative to v07)
+ cp ../clarkhtml/bookI/propI47a.gif bookI/
+ cp ../clarkhtml/bookI/propI47a.gif  ~/Documents/euclidv1/clark/elements/bookI/
+
+* DIFFERENCES from Java
+** DONE propI12.html 
+Point F does not draw a vertex, but it has a black vertex in Java.
+Similarly for points E and G.
+The reason has to do with how Java initializes an 'int'.
+Namely, Java 'int dimension;' sets the value of 'dimension' to the integer 0.
+However, 'var dimension;' sets the value of 'dimension' to 'undefined'.
+So changed, in Element.js, the default value of dimension to 0.
+Then, in Geometry.js, in the determination of vertexColor, this '0' value
+comes into play, so that a Point, whose vertexColor is not otherwise determined,
+has a dimension == 0, so gets a vertexColor of Black.
+
+* maketidybookscript
+in v07 directory:
+python maketidybookscript.py bookI html
+  finds all html files X in ../clarkhtml/bookI
+  writes a script named euclidtidy_bookI.sh
+  which has a line:
+   sh euclidtidy.sh bookI/X.html
+  for each such X.
+
+* v07 euclidtidy.py uses XML processing
+sh euclidtidy.sh bookI/post1.html
+sh euclidtidy.sh bookI/bookI.html
+
+* v06 process to transform clarkhtml files
+Run this from the vxx directory
+* sh euclidtidy.sh elements.html 
+ &rsquo; does not display properly in the tidied file.
+ It is transformed to proper utf-8 code, BUT ..
+ There seems to be no option in tidy to get the '<meta charset="utf-8" />'
+ inserted into the output.
+ The little program euclidtidy.py does this, along with a few other things
+
+sh euclidtidy.sh bookI/bookI.html
+tidy ../clarkhtml/copyright.htlm
+
+tidy ../clarkhtml/bookI/
+* clark.sh
+
+* v05 concatenate the files
+  sh redo.sh  creates a file euclidbundle.js, by concatenating numerous javascript files.
+  This file is loaded by a script statement in the html file.
+  The html file is as constructed by applying tidy to one of Clark's html files.
+  (see 'USING TIDY' below for discussion)
+** here are the lines that load all of my Javascript:
+  <script language="javascript" type="text/javascript" src="../../js/jquery-3.0.0.min.js"></script>
+  <script language="javascript" type="text/javascript" src="../../js/p5.js"></script>
+<script language="javascript" type="text/javascript" src="../euclidbundle.js"></script>
+
+These lines may be put at the end of the <head> section of the html.
+** what other changes to the html?
+  The 'java:disabled' lines should be omitted, or commented out:
+<!-- we don't want this alternate  ejf
+<script type="text/javascript">
+//<![CDATA[
+if (!navigator.javaEnabled()) document.getElementById('ap1').innerHTML =
+  '<img src="post1.gif" hspace=10 vspace=10 alt="Post.1">';
+//]]>
+</script> -->
+
+** next step:
+  make a program which:
+  (a) runs tidy on one of clarkhtml .html files, generating xhtml
+      and in same file name relative to v0x directory
+  (b) Python file modifies by adding/removing lines to this tidied html file
+  (c) checks the end result by xmllint.
+
+* Starting Python webserver
+python -m SimpleHTTPServer 8000
+* v01
+ Similar to v00, but further encapsulates
+* v02
+  Add keyPressed, to reset when 'r','R' or ' ' key is pressed.
+* download of images
+There are many gifs (600 or so) in Clark's pages that use applets.
+Generally, for any <applet>, there is a corresponding gif.
+If a user doesn't have Java enabled, then the gif is shown instead.
+For this section, we concentrate on loading the images. 
+The strategy is to generate a shell script that will use 'curl' to download the images.
+First, we generate a text file with the image statements:
+grep -r '<img' clarkhtml > work/imgsrc.txt 
+This usually contains each <img> statement twice, once within the applet tag, and
+once within a javascript <script> whose purpose is to use the image if Java applet not functioning.
+We edit imgsrc.txt, and retain only those <img> tags within the applet tag; save result as imgsrc1.txt
+
+
+* Using the gifs, discussion
+For instance 
+<div id="ap1">
+<applet code=Geometry codebase="../../Geometry" archive=Geometry.zip height=150 width=250>
+<img src="defI10.gif" alt="java applet or image">
+<param ...>
+...
+</div>
+<script>
+if (!navigator.javaEnabled()) document.getElementById('ap1').innerHTML =
+  '<img src="defI10.gif" hspace=10 vspace=10 alt="I.Def.10">';
+</script>
+
+The <noscript> tag should allow this kind of variation when a browser doesn't support javascript.
+http://aleph0.clarku.edu/~djoyce/elements/bookI/post4.gif
+ in 
+
+* USING TIDY
+tidy --output-xhtml yes --numeric-entities yes --output-encoding utf8 -o temp-xhtml.html ../clarkhtml/bookI/post1.html
+There are numerous errors or 'slack' coding present in the clarhtml  html files.
+This version of tidy seems to generate equivalent and syntactically correct html output;
+for 'xmllint --noout temp-xhtml.html'  shows no errors.
+
+Note: 'tidy' program is present automatically in MacOSX. This is an 'Apple' version.
+The comparison of this apple version with 'official' versions of tidy (from the 
+ html-tidy.org web site) is not spelled out, but the various options used as above seem to work.
+
