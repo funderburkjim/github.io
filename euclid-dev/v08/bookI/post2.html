@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+<meta content="HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.17), see www.w3.org" name="generator" />
+<title>Euclid's Elements, Book I, Postulate 2</title>
+<link href="../elements.css" rel="stylesheet" type="text/css" />
+<script src="../elements.js" type="text/javascript">
+</script>
+<script language="javascript" src="../../js/jquery-3.0.0.min.js" type="text/javascript"> </script><script language="javascript" src="../../js/p5.js" type="text/javascript"> </script><script language="javascript" src="../euclidbundle.js" type="text/javascript"> </script></head>
+<body>
+<div id="header"></div>
+<script type="text/javascript">
+//
+loadHeader();
+//
+</script>
+<div class="theorem">
+<h1>Postulate 2</h1>
+<div class="statement">To produce a finite straight line
+continuously in a straight line.</div>
+</div>
+<h2><a id="guide" name="guide">Guide</a></h2>
+<center>
+<div id="ap1"><object height="50" width="600"><param name="background" value="35,19,100" />
+ <param name="title" value="Post.2" />
+ <param name="align" value="above" />
+ <param name="e[1]" value="A;point;free;250,30" />
+ <param name="e[2]" value="B;point;free;350,30" />
+ <param name="e[3]" value="C;point;lineSlider;A,B,100,30" />
+ <param name="e[4]" value="D;point;lineSlider;A,B,500,30" />
+ <param name="e[5]" value="CD;line;connect;C,D" /></object></div>
+</center>
+<p>Here we have the second ability of a straightedge, namely, to
+extend a given line <i>AB</i> to <i>CD.</i> This postulate does not
+say how far a line can be extended. Sometimes it is used so that
+the extension equals some other line. Other times it is extended
+arbitrarily far.</p>
+<p>As with the first postulate, it is implicitly assumed in the
+books on plane geometry that when a line is extended, it remains in
+the plane of discussion. The first proposition on solid geometry,
+proposition <a href="../bookXI/propXI1.html">XI.1</a>, claims that
+line can’t be only partly in a plane. The central step in the proof
+of that proposition is to show that a line cannot be extended in
+two ways, that is, there is only one continuation of a line. The
+proof is hardly convincing. Rather, this postulate should include a
+clause to that effect.</p>
+<h4>Neusis: fitting a line into a diagram</h4>
+Other uses of a straightedge can be imagined. For instance, it
+might be marked at two points on it, then fit into a diagram so
+that the two points fall on two lines, perhaps curved. This
+operation is an example of “neusis” or “verging” where lines are
+adjusted to fit the diagram. For instance, Archimedes, who lived in
+the century after Euclid, used neusis in several constructions in
+his work <i>On Spirals.</i> In the <i>Book of Lemmas,</i>
+attributed by Thabit ibn-Qurra to Archimedes, neusis is used to
+trisect an angle.
+<table cellpadding="5">
+<tr>
+<td>Suppose the angle <i>ABC</i> is to be trisected. Draw a circle
+<i>DEF</i> with center <i>B</i> and any radius. Extend <i>CB</i>
+through <i>D</i> and beyond. Fit in a line <i>GHE</i> passing
+through <i>E</i> and a point <i>G</i> on the line <i>CB</i>
+extended so that a segment (colored green) equal to the radius
+<i>BD</i> of the circle starts at <i>G</i> and ends at a point
+<i>H</i> on the circle. (You’ll have to move <i>G</i> around until
+<i>H</i> lands on the circle.) Draw <i>BH.</i>
+<p>With the help of Euclid’s propositions here in Book I, we can
+show that angle <i>EGC</i> is one-third of angle <i>ABC.</i> Since
+the lines <i>GH, HB,</i> and <i>BE</i> are equal, therefore the
+triangles <i>GHB</i> and <i>HBE</i> are isosceles. Therefore, by
+<a href="propI5.html">I.5</a>, angle <i>HGB</i> equals <i>HBG,</i>
+and angle <i>BHE</i> equals angle <i>BEH.</i></p>
+</td>
+<td>
+<div id="ap2"><object height="190" width="310"><param name="background" value="35,19,100" />
+ <param name="title" value="A trisection" />
+ <param name="e[1]" value="A;point;free;250,30" />
+ <param name="e[2]" value="B;point;free;150,150" />
+ <param name="e[3]" value="AB;line;connect;A,B" />
+ <param name="e[4]" value="C;point;free;270,150" />
+ <param name="e[5]" value="F;point;lineSlider;B,C,220,150" />
+ <param name="e[6]" value="D;point;extend;F,B,F,B" />
+ <param name="e[7]" value="semi;sector;sector;B,F,D;0;0;black;random" />
+ <param name="e[8]" value="E;point;cutoff;B,A,B,F" />
+ <param name="e[9]" value="CD;line;connect;C,D" />
+ <param name="e[10]" value="circ;circle;radius;B,F;0;0;0;0" />
+ <param name="e[11]" value="G;point;lineSlider;C,B,40,150" />
+ <param name="e[12]" value="CG;line;connect;C,G" />
+ <param name="e[13]" value="H;point;cutoff;G,E,B,F" />
+ <param name="e[14]" value="EH;line;connect;E,H" />
+ <param name="e[15]" value="HG;line;connect;H,G;0;0;green" />
+ <param name="e[16]" value="BH;line;connect;B,H" /></object></div>
+</td>
+</tr>
+</table>
+<p>By <a href="propI32.html">I.32</a>, the exterior angle
+<i>BHE</i> of triangle <i>GHB</i> equals the sum of the equal
+angles <i>HGB</i> and <i>HBG,</i> therefore angle <i>BHE</i> is
+double angle <i>HGB.</i> And angle <i>BEH</i> equals <i>BHE,</i> so
+it is also double angle <i>HGB.</i></p>
+<p>Again by I.32, the exterior angle <i>ABC</i> of triangle
+<i>BEG</i> is the sum of angles <i>HGB</i> and <i>BEH.</i> But
+angle <i>BEH</i> is double angle <i>HGB,</i> therefore angle
+<i>ABC</i> is triple angle <i>HGB.</i></p>
+<p>Therefore, angle <i>GHB</i> is one-third of angle <i>ABC.</i>
+Q.E.D.</p>
+<p>The ancient Greek geometers believed that angle trisection
+required tools beyond those given in Euclid’s postulates. They were
+right, but it wasn’t proved until Wantzel in 1837 proved that a
+60°-angle cannot be so trisected using only Euclidean tools.</p>
+<p>Euclid has no postulate for neusis constructions, and since
+neusis constructions can trisect angles, we conclude from Wantzel’s
+theorem that another postulate is required to justify neusis
+constructions.</p>
+<div id="footer"></div>
+<script type="text/javascript">
+//
+  loadFooter("1996");
+//
+</script>
+</body>
+</html>

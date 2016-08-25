@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+<meta content="HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.17), see www.w3.org" name="generator" />
+<title>Euclid's Elements, Book I, Proposition 7</title>
+<link href="../elements.css" rel="stylesheet" type="text/css" />
+<script src="../elements.js" type="text/javascript">
+</script>
+<script language="javascript" src="../../js/jquery-3.0.0.min.js" type="text/javascript"> </script><script language="javascript" src="../../js/p5.js" type="text/javascript"> </script><script language="javascript" src="../euclidbundle.js" type="text/javascript"> </script></head>
+<body>
+<div id="header"></div>
+<script type="text/javascript">
+//
+loadHeader();
+//
+</script>
+<div class="theorem">
+<h1>Proposition 7</h1>
+<div class="statement">Given two straight lines constructed from
+the ends of a straight line and meeting in a point, there cannot be
+constructed from the ends of the same straight line, and on the
+same side of it, two other straight lines meeting in another point
+and equal to the former two respectively, namely each equal to that
+from the same end.</div>
+<p>If possible, given two straight lines <i>AC</i> and <i>CB</i>
+constructed on the straight line <i>AB</i> and meeting at the point
+<i>C,</i> let two other straight lines <i>AD</i> and <i>DB</i> be
+constructed on the same straight line <i>AB,</i> on the same side
+of it, meeting in another point <i>D</i> and equal to the former
+two respectively, namely each equal to that from the same end, so
+that <i>AC</i> equals <i>AD</i> which has the same end <i>A,</i>
+and <i>CB</i> equals <i>DB</i> which has the same end <i>B.</i></p>
+<div class="ldiagram">
+<div id="ap1"><object height="200" width="210"><param name="background" value="35,19,100" />
+ <param name="title" value="I.7" />
+ <param name="e[1]" value="A;point;free;40,170" />
+ <param name="e[2]" value="B;point;free;170,170" />
+ <param name="e[3]" value="C;point;free;90,40" />
+ <param name="e[4]" value="D;point;free;125,50" />
+ <param name="e[5]" value="ABC;polygon;triangle;A,B,C;0;0;0,0,0;0" />
+ <param name="e[6]" value="CD;line;connect;C,D" />
+ <param name="e[7]" value="AD;line;connect;A,D" />
+ <param name="e[8]" value="BD;line;connect;B,D" /></object></div>
+</div>
+<div class="just"><a href="post1.html">I.Post.1</a></div>
+<p>Join <i>CD.</i></p>
+<div class="just"><a href="propI5.html">I.5</a><br />
+<a href="cn.html">C.N.5</a></div>
+<p>Since <i>AC</i> equals <i>AD,</i> therefore the angle <i>ACD</i>
+equals the angle <i>ADC.</i> Therefore the angle <i>ADC</i> is
+greater than the angle <i>DCB.</i> Therefore the angle <i>CDB</i>
+is much greater than the angle <i>DCB.</i></p>
+<div class="just"><a href="propI5.html">I.5</a><br />
+<a href="cn.html">C.N.</a></div>
+<p>Again, since <i>CB</i> equals <i>DB,</i> therefore the angle
+<i>CDB</i> also equals the angle <i>DCB.</i> But it was also proved
+much greater than it, which is impossible.</p>
+<p>Therefore <i>given two straight lines constructed from the ends
+of a straight line and meeting in a point, there cannot be
+constructed from the ends of the same straight line, and on the
+same side of it, two other straight lines meeting in another point
+and equal to the former two respectively, namely each equal to that
+from the same end.</i></p>
+<div class="qed">Q.E.D.</div>
+<br clear="all" /></div>
+<h2><a id="guide" name="guide">Guide</a></h2>
+In order to conclude “the angle <i>ADC</i> is greater than the
+angle <i>DCB</i>” it is necessary for angle <i>ADC</i> to be
+greater than angle <i>DCB,</i> but that won’t happen unless the
+point <i>D</i> lies outside the triangle <i>ABC.</i> Euclid hasn’t
+considered the case when <i>D</i> lies inside triangle <i>ABC</i>
+as well as other special cases. This is not unusual as Euclid
+frequently treats only one case. Commentators over the centuries
+have inserted other cases in this and other propositions. It is
+usually easy to modify Euclid’s proof for the remaining cases. In
+this proposition for the case when <i>D</i> lies inside triangle
+<i>ABC,</i> the second conclusion of <a href="propI5.html">I.5</a>
+may be used to justify the proof.
+<h4>Hidden justifications</h4>
+The sentences
+<div style="margin-left: 2em">... the angle <i>ACD</i> equals the
+angle <i>ADC.</i> Therefore the angle <i>ADC</i> is greater than
+the angle <i>DCB.</i> Therefore the angle <i>CDB</i> is much
+greater than the angle <i>DCB.</i></div>
+use several properties of magnitudes. C.N.5 justifies the unstated
+angle <i>ACD</i> &gt; <i>DCB</i> since <i>DCB</i> is part of
+<i>ACD.</i> The statement that <i>ADC</i> is greater than the angle
+<i>DCB</i> is justified by the property of magnitudes
+<center>If <i>x</i> &lt; <i>y</i> and
+<i>y</i> = <i>z,</i> then <i>x</i> &lt;
+<i>z.</i></center>
+<p>This property is not among the listed <a href="cn.html">Common
+Notions</a>.</p>
+<p>Next, transitivity of “less than”</p>
+<center>If <i>x</i> &lt; <i>y</i> and <i>y</i> &lt; <i>z,</i> then
+<i>x</i> &lt; <i>z.</i></center>
+<p>justifies the last statement “<i>CDB</i> is much greater than
+the angle <i>DCB.</i>” Transitivity is another property not listed
+as a Common Notion.</p>
+<p>As in the proof of the last proposition and many to come, the
+law of trichotomy is also used. Here it’s used to reach the final
+contradiction.</p>
+<h4>Use of Proposition 7</h4>
+This proposition is used in the proof of the next proposition.
+<div id="footer"></div>
+<script type="text/javascript">
+//
+  loadFooter("1996, 1997");
+//
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<HTML><HEAD>
+<TITLE>Euclid's Elements, Using the Geometry Applet</TITLE>
+<link rel="stylesheet" type="text/css" href="elements.css">
+<script src="elements.js"></script></HEAD>
+<BODY>
+
+<div id="header"></div>
+<script>loadHeader();</script>
+ 
+<h1>Using the Geometry Applet</h1>
+
+<p>The <a href="../Geometry/Geometry.html">Geometry Applet</a> is used to illustrate the figures in the <i>Elements.</i> With the help of this applet, you can manipulate the figures by dragging points.
+
+<p>In order to take advantage of this applet, be sure that you have
+enabled Java on your browser.  If you disable Java, or if your browser is not Java-capable, then the illustrations in the elements will still appear, but as plain images.
+
+<p>If you click on a point in the figure, you can usually move it in some way. The free points, usually colored red, can be freely dragged about, and as they move, the rest of the diagram (except the other free points) will adjust appropriately.  Sliding points, usually colored orange, can be dragged about like the free points, except their motion is limited to either a straight line, a circle, a plane, or a sphere, depending on the point. Other points can be dragged to translate the entire diagram.  But if a pivot point appears, usually colored green, then the diagram will be rotated and scaled around that pivot point.
+
+<p>Take, for example, the figure below showing the relation between a tetrahedron and a cube inscribed in a sphere.  The diameter of the sphere has length <i>AB,</i> and you can drag the endpoints <i>A</i> and <i>B</i> to change the size of the sphere.  The side of the cube has length <i>BD,</i> and the side of the tetrahedron has length <i>AD.</i>  The cube is drawn with red edges while the tetrahedron is shaded light blue and drawn with blue edges.  The center of the sphere is the red dot, and you can drag it to move the sphere around.  The point <i>E</i> can be dragged anywhere on the surface of the sphere.  The point <i>F</i> has to be at length <i>BD</i> from <i>E</i> on the surface of the sphere, and so it drags along a certain circle on the sphere.  The rest of the cube and tetrahedron are then determined.  (See proposition <a href=bookXIII/propXIII15.html>XIII.15</a> for background on the mathematics.)
+
+<center>
+<div id="ap1">
+<applet code=Geometry codebase="../Geometry" archive=Geometry.zip width=440 height=280>
+<img src="bookXIII/propXIII15a.gif" alt="Cube and tetrahedron">
+<param name=background value="35,19,100">
+<param name=title value="Cube and tetrahedron">
+<param name=e[1] value="A0;point;free;30,-1000;0;0">
+<param name=e[2] value="A3;point;free;30,1000;0;0">
+<param name=e[3] value="A;point;lineSlider;A0,A3,0,40">
+<param name=e[4] value="B;point;lineSlider;A0,A3,0,240">
+<param name=e[5] value="AB;line;connect;A,B">
+<param name=e[6] value="ABmid;point;midpoint;A,B;0;0">
+<param name=e[7] value="ABcirc;circle;radius;ABmid,B;0;0;0;0">
+<param name=e[8] value="semi;sector;sector;ABmid,B,A;0;0;black;random">
+<param name=e[9] value="A1;point;perpendicular;A,B;0;0">
+<param name=e[10] value="A2;point;extend;A,A1,A,A1;0;0">
+<param name=e[11] value="B1;point;perpendicular;B,A;0;0">
+<param name=e[12] value="C;point;intersection;A,B,A2,B1">
+<param name=e[13] value="D';point;perpendicular;C,A;0;0">
+<param name=e[14] value="Dch;line;chord;C,D',ABcirc;0;0;0">
+<param name=e[15] value="D;point;last;Dch">
+<param name=e[16] value="CD;line;connect;C,D">
+<param name=e[17] value="BD;line;connect;B,D;0;0;red">
+<param name=e[18] value="AD;line;connect;A,D;0;0;blue">
+<param name=e[19] value="P;point;free;280,140;0">
+<param name=e[20] value="Psphere;sphere;radius;P,A,ABmid;0;0;lightGray">
+<param name=e[21] value="E;point;sphereSlider;Psphere,240,100,-40">
+<param name=e[22] value="M;point;extend;E,P,P,E">
+<param name=e[23] value="Esphere;sphere;radius;E,D,B;0;0;0;0">
+<param name=e[24] value="Fcircle;circle;intersection;Esphere,Psphere;0;0;0;0">
+<param name=e[25] value="F;point;circleSlider;Fcircle,330,200,30">
+<param name=e[26] value="N;point;extend;F,P,P,E">
+<param name=e[27] value="ENplane;plane;perpendicular;E,F;0;0;0;0">
+<param name=e[28] value="Q;point;midpoint;E,N;0;0">
+<param name=e[29] value="H;point;perpendicular;Q,E,ENplane">
+<param name=e[30] value="K;point;parallelogram;E,H,N">
+<param name=e[31] value="L;point;extend;H,P,P,E">
+<param name=e[32] value="G;point;extend;K,P,P,E">
+<param name=e[33] value="cube;polyhedron;parallelepiped;E,F,H,K;0;0;red;0">
+<param name=e[34] value="tet;polyhedron;tetrahedron;E,N,L,G;0;0;blue;random">
+</applet>
+</div>
+<script>
+if (!navigator.javaEnabled())
+  document.getElementById('ap1').innerHTML='<img src="bookXIII/propXIII15a.gif" alt="Cube and tetrahedron"><p>If you had java enabled, you would not see just this static image, and you would be able to drag the points around to change the diagram.';
+</script>
+</center>
+
+<p>Note that you can&rsquo;t drag a point off the diagram, but frequently parts of the diagram will be moved off as you drag other points around.  But if you type <b>r</b> or the <b>space key</b> while the cursor is over the diagram, then the diagram will be reset to its original configuration.  
+
+<p>You can also lift the figure off the page into a separate window. When you type <b>u</b> or <b>return</b> the figure is moved to its own window.  Typing <b>d</b> or <b>return</b> while the cursor is over the original window will return the diagram to the page.  Note that you can resize the floating window to make the diagram larger.
+
+
+<div id="footer"></div>
+<script>loadFooter("1996, 1997");</script>
+</BODY>
+</HTML>
